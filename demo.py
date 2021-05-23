@@ -79,11 +79,21 @@ class Demo:
                                 e = (v, self.selected, int(self.distance(self.positions[v], self.positions[self.selected])))
                                 if e not in self.edges:
                                     self.edges.append(e)
+                                    self.labels.append(
+                                        TextBox(((self.positions[e[0]] + ((self.positions[e[1]]- self.positions[e[0]]) / 2)).x,
+                                                 (self.positions[e[0]] + ((self.positions[e[1]]- self.positions[e[0]]) / 2)).y - 20),
+                                                (20, 15), str(e[2]), (0, 0, 0), 10, (255, 255, 255)))
                                     print("Created edge", e)
                             else:
                                 e = (self.selected, v, int(self.distance(self.positions[v], self.positions[self.selected])))
                                 if e not in self.edges:
                                     self.edges.append(e)
+                                    self.labels.append(
+                                        TextBox(((self.positions[e[0]] + (
+                                                    (self.positions[e[1]] - self.positions[e[0]]) / 2)).x,
+                                                 (self.positions[e[0]] + ((self.positions[e[1]] - self.positions[
+                                                     e[0]]) / 2)).y - 20),
+                                                (20, 15), str(e[2]), (0, 0, 0), 10, (255, 255, 255)))
                                     print("Created edge", e)
                             self.selected = -1
 
